@@ -4,7 +4,7 @@ const endpoints = getEndpoints();
 
 type ENDPOINTS = keyof typeof endpoints;
 type RESPONSE_DATA = {
-  greeting: string
+  greeting: string;
 };
 
 const getJson = async <T>(endpoint: ENDPOINTS): Promise<T> => {
@@ -16,13 +16,14 @@ const getJson = async <T>(endpoint: ENDPOINTS): Promise<T> => {
 
 type API = {
   get: {
-    data: () => Promise<RESPONSE_DATA>
-  }
+    data: () => Promise<RESPONSE_DATA>;
+  };
 };
 const api: API = {
   get: {
-    data: () => getJson<RESPONSE_DATA>('data')
-  }
-}
-export type { RESPONSE_DATA, ENDPOINTS }
+    data: () => getJson<RESPONSE_DATA>('data'),
+  },
+};
+
+export type { RESPONSE_DATA, ENDPOINTS };
 export default api;
